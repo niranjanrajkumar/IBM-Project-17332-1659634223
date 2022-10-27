@@ -1,0 +1,49 @@
+Rotating K elements N times
+
+#include <stdio.h>
+
+int main()
+{
+    int M,N,K;
+    scanf("%d",&M);
+    int arr[M];
+    for(int i=0;i<M;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d %d",&N,&K);
+    for(int i=0;i<M;i=i+N)
+    {
+        if(i+N-1<M)
+        {
+            for(int p=0;p<K;p++)
+            {
+                int temp=arr[i];
+                for(int j=i;j<(i+N)-1;j++)
+                {
+                    arr[j]=arr[j+1];
+                }
+                arr[i+N-1]=temp;
+            }
+        }
+        else
+        {
+            for(int p=0;p<K;p++)
+            {
+                int temp=arr[i];
+                for(int j=i;j<M-1;j++)
+                {
+                    arr[j]=arr[j+1];
+                }
+                arr[M-1]=temp;
+            }
+            
+        }
+    }
+    for(int i=0;i<M;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    
+    
+}
